@@ -27,7 +27,12 @@ namespace Polymorphism
 			sqlConnection.Close();
 			var oracleConnection = new OracleConnection("This is a oracle connectionString");
 			oracleConnection.Open();
-			oracleConnection.Close();	
+			oracleConnection.Close();
+
+			var sqlDbCommand = new DbCommand(null,"Select * from Clients");
+			var oracleDbCommand = new DbCommand(oracleConnection, "Select * from Users");
+			sqlDbCommand.Execute();
+			oracleDbCommand.Execute();
 		}
 	}
 }
